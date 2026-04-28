@@ -1,13 +1,12 @@
 <script setup>
 import { eventos } from "@/data/eventos";
+import EventCard from "@/components/EventCard.vue";
+
 import {
   IonBackButton,
   IonButtons,
   IonContent,
   IonHeader,
-  IonItem,
-  IonLabel,
-  IonList,
   IonPage,
   IonTitle,
   IonToolbar,
@@ -25,18 +24,12 @@ import {
       </IonToolbar>
     </IonHeader>
     <IonContent>
-      <IonList>
-        <IonItem
-          v-for="evento in eventos"
-          :key="evento.id"
-          :router-link="'/eventos/' + evento.id"
+        <EventCard
+        v-for="e in eventos"
+        :key="e.id"
+        :evento="e"
         >
-          <IonLabel>
-            <h2>{{ evento.titulo }}</h2>
-            <p>{{ evento.descricao }}</p>
-          </IonLabel>
-        </IonItem>
-      </IonList>
+        </EventCard>
     </IonContent>
   </IonPage>
 </template>

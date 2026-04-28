@@ -2,5 +2,7 @@
 http://ionicframework.com/docs/theming/ */
 
 :root {
-  --ion-color-primary: #ff6600;
+  --ion-color-primary: #6C63FF;
+  --ion-color-secondary: #FF6584;
+  --ion-color-tertiary: #00C9A7;
 }

@@ -7,6 +7,8 @@ import {
   IonPage,
   IonContent,
   IonInput,
+  IonItem,
+  IonLabel,
 } from "@ionic/vue";
 import { ref, watch } from "vue";
 
@@ -22,13 +24,21 @@ watch(nome, (novo) => {
     <IonHeader>
       <IonToolbar>
         <IonButtons slot="start">
-          <IonBackButton default-href="/home" />
+          <IonBackButton default-href="/"/>
         </IonButtons>
-        <IonTitle>Título</IonTitle>
+        <IonTitle>Pagina do seu Perfil!</IonTitle>
       </IonToolbar>
     </IonHeader>
     <IonContent class="ion-padding">
-      <IonInput v-model="nome" placeholder="Seu nome"></IonInput>
+      <IonItem>
+        <IonLabel position="stacked">Nome</IonLabel>
+        <IonInput v-model="nome"></IonInput>
+      </IonItem>
+
+      <IonItem>
+        <IonLabel position="stacked">Bio</IonLabel>
+        <IonInput v-model="bio"></IonInput>
+      </IonItem>
     </IonContent>
   </IonPage>
 </template>
