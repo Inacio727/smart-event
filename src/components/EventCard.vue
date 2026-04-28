@@ -6,26 +6,19 @@ import {
   IonCardHeader,
   IonCardTitle,
 } from "@ionic/vue";
-import { useRouter } from "vue-router";
 
 defineProps(["evento"]);
 defineEmits(["favoritar"]);
 </script>
 
 <template>
-  <IonCard
-    :router-link="'/eventos/' + evento.id"
-    router-direction="forward"
-    button
-  >
+  <IonCard>
     <IonCardHeader>
       <IonCardTitle>{{ evento.titulo }}</IonCardTitle>
     </IonCardHeader>
 
     <IonCardContent>
       <p>{{ evento.descricao }}</p>
-
-      <IonButton @click="$emit('favoritar')"> Favoritar </IonButton>
       <IonButton
         :router-link="'/eventos/' + evento.id"
         router-direction="forward"
