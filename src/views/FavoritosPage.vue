@@ -20,7 +20,10 @@ const favoritos = computed(() => eventos.filter((e) => e.favorito));
       <div v-if="favoritos.length === 0">Nenhum favorito ainda</div>
 
       <IonList v-else>
-        <IonItem v-for="x in favoritos" :key="x.id">
+        <IonItem 
+        v-for="e in favoritos" 
+        :key="e.id" 
+        :router-link="'/eventos/' + e.id">
           {{ e.titulo }}
         </IonItem>
       </IonList>
