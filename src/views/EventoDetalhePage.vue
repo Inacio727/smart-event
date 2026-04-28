@@ -3,13 +3,18 @@ import { useRoute } from "vue-router";
 import { eventos } from "@/data/eventos";
 import { computed } from "vue";
 import {
+  IonBackButton,
   IonButton,
+  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
   IonCardTitle,
   IonContent,
+  IonHeader,
   IonPage,
+  IonTitle,
+  IonToolbar,
 } from "@ionic/vue";
 
 const route = useRoute();
@@ -22,24 +27,27 @@ function toggleFavorito() {
 </script>
 
 <template>
-  <IonHeader>
-    <IonToolbar>
-      <IonButtons slot="start">
-        <IonBackButton default-href="/home" />
-      </IonButtons>
-      <IonTitle>Título</IonTitle>
-    </IonToolbar>
-  </IonHeader>
   <IonPage>
+    <IonHeader>
+      <IonToolbar>
+        <IonButtons slot="start">
+          <IonBackButton default-href="/eventos"></IonBackButton>
+        </IonButtons>
+        <IonTitle>Detalhes do Evento {{ evento.titulo }}</IonTitle>
+      </IonToolbar>
+    </IonHeader>
+
     <IonContent class="ion-padding">
       <IonCard v-if="evento">
         <IonCardHeader>
           <IonCardTitle>{{ evento.titulo }}</IonCardTitle>
         </IonCardHeader>
-
         <IonCardContent>
-          {{ evento.descricao }}
-          <IonButton @click="toggleFavorito"> Favoritar </IonButton>
+          <p>{{ evento.descricao }}</p>
+
+          <IonButton @click="toggleFavorito" expand="block">
+            {{ evento.favorito ? "Remover dos favoritos" : "Favoritar" }}
+          </IonButton>
         </IonCardContent>
       </IonCard>
     </IonContent>

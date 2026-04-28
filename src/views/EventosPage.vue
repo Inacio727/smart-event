@@ -6,6 +6,7 @@ import {
   IonContent,
   IonHeader,
   IonItem,
+  IonLabel,
   IonList,
   IonPage,
   IonTitle,
@@ -30,7 +31,10 @@ import {
           :key="evento.id"
           :router-link="'/eventos/' + evento.id"
         >
-          {{ evento.titulo }}
+          <IonLabel>
+            <h2>{{ evento.titulo }}</h2>
+            <p>{{ evento.descricao }}</p>
+          </IonLabel>
         </IonItem>
       </IonList>
     </IonContent>
